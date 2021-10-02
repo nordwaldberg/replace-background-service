@@ -39,10 +39,8 @@ class Database extends EventEmitter {
     }
 
     getAllData() {
-        return {
-            data: this.data,
-        }
-    };
+        return JSON.stringify(this.data);
+    }
 };
 
 const database = new Database();

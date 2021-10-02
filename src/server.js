@@ -36,12 +36,9 @@ server.get('/image/:id', (req, res) => {
     const contentType = data.type;
 
     const filepath = path.resolve(__dirname, `${images}/${filename}`);
-
-
     const fileStream = fs.createReadStream(filepath);
 
     res.contentType(contentType);
-
     fileStream.pipe(res);
 });
 
@@ -99,9 +96,10 @@ server.delete('/image/:id', (req, res) => {
 
     database.deleteData(dataIndex);
 
-    res.statusCode = 204;
-
-    res.end();
+    res.statusCode = 200;
+    res.contentType('application/json');
+    const resContent = JSON.stringify({ id : id });
+    res.send(resContent);
 });
 
 server.listen(port, () => {
