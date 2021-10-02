@@ -1,11 +1,12 @@
 const path = require('path');
 
-const databaseFolder = path.resolve(__dirname, '../database');
-const dump = path.resolve(databaseFolder, 'dump.json');
-const images = path.resolve(databaseFolder, 'images');
+
+const databaseDirPath = path.resolve(__dirname, '../database');
+const dumpFilePath = path.resolve(databaseDirPath, 'dump.json');
+const imagesDirPath = path.resolve(databaseDirPath, 'images');
 
 module.exports = {
-    databaseFolder,
-    dump,
-    images,
+    databaseDirPath,
+    dumpFilePath,
+    imagesDirPath,
 };
